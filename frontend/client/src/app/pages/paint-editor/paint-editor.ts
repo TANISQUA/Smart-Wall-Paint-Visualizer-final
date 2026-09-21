@@ -5,6 +5,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 
+import { environment } from '../../../environments/environment';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -824,7 +825,7 @@ export class PaintEditor implements AfterViewInit {
 
     this.http
       .post(
-        'http://localhost:5000/api/designs',
+        '${environment.apiUrl}/designs',
         design
       )
       .subscribe({

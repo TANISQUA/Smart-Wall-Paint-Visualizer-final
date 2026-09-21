@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import { Router } from '@angular/router';
-
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-admin-dashboard',
@@ -57,7 +57,7 @@ export class AdminDashboard implements OnInit {
     try {
 
       const response = await fetch(
-        'http://localhost:5000/api/designs/count'
+        '${environment.apiUrl}/designs/count'
       );
 
       console.log(
@@ -122,7 +122,7 @@ export class AdminDashboard implements OnInit {
     try {
 
       const response = await fetch(
-        'http://localhost:5000/api/colours'
+        '${environment.apiUrl}/colours'
       );
 
 
@@ -183,7 +183,7 @@ export class AdminDashboard implements OnInit {
     try {
 
       const response = await fetch(
-        'http://localhost:5000/api/auth/users'
+        '${environment.apiUrl}/auth/users'
       );
 
 

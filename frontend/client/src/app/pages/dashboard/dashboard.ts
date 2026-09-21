@@ -2,6 +2,7 @@ import { Component, ChangeDetectorRef, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,7 +38,7 @@ export class Dashboard implements OnInit {
     // ==============================
 
     this.http.get<any>(
-      'http://localhost:5000/api/auth/users'
+      '${environment.apiUrl}/auth/users'
     ).subscribe({
 
       next: (response) => {
@@ -80,7 +81,7 @@ export class Dashboard implements OnInit {
     // ==============================
 
     this.http.get<any>(
-      'http://localhost:5000/api/colours'
+      '${environment.apiUrl}/colours'
     ).subscribe({
 
       next: (response) => {
@@ -123,7 +124,7 @@ export class Dashboard implements OnInit {
     // ==============================
 
     this.http.get<any>(
-      'http://localhost:5000/api/designs/count'
+      '${environment.apiUrl}/designs/count'
     ).subscribe({
 
       next: (response) => {

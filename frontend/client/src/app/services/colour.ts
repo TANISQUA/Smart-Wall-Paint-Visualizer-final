@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 export interface PaintColour {
   _id?: string;
@@ -13,7 +14,7 @@ export interface PaintColour {
 })
 export class Colour {
 
-  private apiUrl = 'http://localhost:5000/api/colours';
+  private apiUrl = `${environment.apiUrl}/colours`;
 
   constructor(private http: HttpClient) {}
 

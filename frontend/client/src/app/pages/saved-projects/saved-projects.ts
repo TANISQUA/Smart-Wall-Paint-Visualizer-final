@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-saved-projects',
@@ -47,7 +48,7 @@ export class SavedProjects implements OnInit {
     console.log('PAGE ID:', pageId);
 
     this.http
-      .get<any>('http://localhost:5000/api/designs')
+      .get<any>('${environment.apiUrl}/designs')
       .subscribe({
 
         next: (response: any) => {
@@ -357,7 +358,7 @@ export class SavedProjects implements OnInit {
 
     this.http
       .delete(
-        'http://localhost:5000/api/designs/' +
+        '${environment.apiUrl}/designs/' +
         design._id
       )
       .subscribe({
