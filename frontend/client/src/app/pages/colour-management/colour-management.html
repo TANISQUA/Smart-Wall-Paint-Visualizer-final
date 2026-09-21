@@ -1,0 +1,164 @@
+<div class="container mt-4">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+      <h2>🎨 Paint Colour Management</h2>
+
+      <p class="text-muted">
+        Add, edit and remove paint colours available in the application.
+      </p>
+    </div>
+
+    <button
+      class="btn btn-outline-dark"
+      (click)="goBack()">
+      ← Admin Dashboard
+    </button>
+
+  </div>
+
+
+  <!-- Add Colour -->
+  <div class="card shadow p-4 mb-4">
+
+    <h4>
+      ➕ Add New Colour
+    </h4>
+
+    <hr>
+
+    <div class="row g-3">
+
+      <!-- Colour Name -->
+      <div class="col-md-5">
+
+        <label class="form-label">
+          Colour Name
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newColourName"
+          placeholder="Example: Ocean Blue">
+
+      </div>
+
+
+      <!-- Colour Picker -->
+      <div class="col-md-3">
+
+        <label class="form-label">
+          Select Colour
+        </label>
+
+        <input
+          type="color"
+          class="form-control form-control-color"
+          [(ngModel)]="newColourCode">
+
+      </div>
+
+
+      <!-- Colour Code -->
+      <div class="col-md-4">
+
+        <label class="form-label">
+          Colour Code
+        </label>
+
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="newColourCode"
+          placeholder="#87CEEB">
+
+      </div>
+
+    </div>
+
+
+    <button
+      class="btn btn-success mt-3"
+      (click)="addColour()">
+
+      ➕ Add Colour
+
+    </button>
+
+  </div>
+
+
+  <!-- Existing Colours -->
+  <div class="card shadow p-4">
+
+    <div class="d-flex justify-content-between align-items-center">
+
+      <h4>
+        🎨 Available Colours
+      </h4>
+
+      <span class="badge bg-primary">
+        {{ colours.length }} Colours
+      </span>
+
+    </div>
+
+    <hr>
+
+
+    <div class="row g-4">
+
+      <div
+        class="col-md-4 col-lg-3"
+        *ngFor="let colour of colours; let i = index">
+
+        <div class="card colour-card h-100">
+
+          <!-- Colour Preview -->
+          <div
+            class="colour-preview"
+            [style.background-color]="colour.code">
+          </div>
+
+
+          <div class="card-body">
+
+            <h5>
+              {{ colour.name }}
+            </h5>
+
+            <p class="text-muted">
+              {{ colour.code }}
+            </p>
+
+
+            <div class="d-flex gap-2">
+
+              <button
+                class="btn btn-sm btn-outline-primary"
+                (click)="editColour(i)">
+                ✏️ Edit
+              </button>
+
+              <button
+                class="btn btn-sm btn-outline-danger"
+                (click)="deleteColour(i)">
+                🗑 Delete
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

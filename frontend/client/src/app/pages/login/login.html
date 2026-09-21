@@ -1,0 +1,66 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-5">
+
+      <div class="card shadow-lg p-4">
+
+        <h2 class="text-center mb-4">
+          Smart Wall Paint Visualizer
+        </h2>
+
+        <h4 class="text-center mb-4">
+          Login
+        </h4>
+
+        <form (ngSubmit)="login()">
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+
+            <input
+              id="email"
+              type="email"
+              class="form-control"
+              placeholder="Enter Email"
+              [(ngModel)]="email"
+              name="email"
+              required>
+          </div>
+
+          <!-- Password -->
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+
+            <input
+              id="password"
+              type="password"
+              class="form-control"
+              placeholder="Enter Password"
+              [(ngModel)]="password"
+              name="password"
+              required>
+          </div>
+
+          <!-- Login Button -->
+          <button
+            type="submit"
+            class="btn btn-primary w-100">
+            Login
+          </button>
+
+        </form>
+
+        <!-- Register Link -->
+        <p class="text-center mt-3">
+          Don't have an account?
+          <a routerLink="/register">Register</a>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

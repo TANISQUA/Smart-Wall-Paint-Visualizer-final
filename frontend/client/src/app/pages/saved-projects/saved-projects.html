@@ -1,0 +1,230 @@
+<div class="container mt-4">
+
+  <!-- HEADER -->
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+
+      <h2>💾 Saved Designs</h2>
+
+      <p class="text-muted">
+        Your saved room paint designs
+      </p>
+
+    </div>
+
+
+    <button
+      class="btn btn-secondary"
+      (click)="goToDashboard()">
+
+      ← Dashboard
+
+    </button>
+
+  </div>
+
+
+  <!-- LOADING -->
+
+  <div
+    *ngIf="loading"
+    class="text-center mt-5">
+
+    <div class="card shadow p-5">
+
+      <h3>
+        Loading saved designs...
+      </h3>
+
+      <p class="text-muted">
+        Please wait.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- ERROR -->
+
+  <div
+    *ngIf="!loading && errorMessage"
+    class="alert alert-danger">
+
+    {{ errorMessage }}
+
+  </div>
+
+
+  <!-- SAVED DESIGNS -->
+
+  <div
+    *ngIf="!loading && savedDesigns.length > 0"
+    class="row g-4">
+
+
+    <div
+      class="col-md-6 col-lg-4"
+      *ngFor="
+        let design of savedDesigns;
+        let i = index
+      ">
+
+
+      <div class="card shadow h-100">
+
+
+        <!-- IMAGE -->
+
+        <div class="p-3 text-center">
+
+          <img
+            *ngIf="design.image"
+            [src]="design.image"
+            alt="Saved Room Design"
+            class="img-fluid rounded"
+            style="
+              width: 100%;
+              height: 220px;
+              object-fit: contain;
+              background: #f5f5f5;
+            ">
+
+        </div>
+
+
+        <!-- DETAILS -->
+
+        <div class="card-body">
+
+          <h5 class="card-title">
+
+            Room Design {{ i + 1 }}
+
+          </h5>
+
+
+          <p
+            *ngIf="design.color"
+            class="mb-2">
+
+            <strong>Colour:</strong>
+
+            {{ design.color }}
+
+          </p>
+
+
+          <p
+            *ngIf="design.wallColor"
+            class="mb-2">
+
+            <strong>Wall Colour:</strong>
+
+            {{ design.wallColor }}
+
+          </p>
+
+
+          <p
+            *ngIf="design.opacity !== undefined"
+            class="mb-2">
+
+            <strong>Opacity:</strong>
+
+            {{ design.opacity }}%
+
+          </p>
+
+
+          <p
+            *ngIf="design.date"
+            class="text-muted small">
+
+            {{ design.date }}
+
+          </p>
+
+
+          <p
+            *ngIf="design.createdAt"
+            class="text-muted small">
+
+            Saved:
+            {{ design.createdAt | date:'medium' }}
+
+          </p>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="card-footer bg-white">
+
+          <div class="d-flex gap-2">
+
+            <button
+              class="btn btn-success flex-fill"
+              (click)="downloadDesign(design.image, i)">
+
+              ⬇ Download
+
+            </button>
+
+
+            <button
+              class="btn btn-danger flex-fill"
+              (click)="deleteDesign(i)">
+
+              🗑 Delete
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- EMPTY -->
+
+  <div
+    *ngIf="
+      !loading &&
+      !errorMessage &&
+      savedDesigns.length === 0
+    "
+    class="text-center mt-5">
+
+    <div class="card shadow p-5">
+
+      <h3>
+        No designs present
+      </h3>
+
+      <p class="text-muted">
+        You have not saved any room designs yet.
+      </p>
+
+      <button
+        class="btn btn-primary"
+        (click)="goToUpload()">
+
+        Create New Design
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+</div>

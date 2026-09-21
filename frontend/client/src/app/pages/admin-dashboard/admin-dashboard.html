@@ -1,0 +1,192 @@
+<div class="container-fluid mt-4">
+
+  <!-- Header -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+
+    <div>
+      <h2>👨‍💼 Admin Dashboard</h2>
+
+      <p class="text-muted">
+        Manage users, paint colours and saved designs.
+      </p>
+    </div>
+
+    <button
+      class="btn btn-outline-danger"
+      (click)="logout()">
+      Logout
+    </button>
+
+  </div>
+
+
+  <!-- Statistics -->
+  <div class="row g-4 mb-4">
+
+    <!-- Users -->
+    <div class="col-md-4">
+
+      <div class="card shadow p-4 text-center">
+
+        <h1>👥</h1>
+
+        <h3>{{ totalUsers }}</h3>
+
+        <p class="text-muted mb-0">
+          Total Users
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Colours -->
+    <div class="col-md-4">
+
+      <div class="card shadow p-4 text-center">
+
+        <h1>🎨</h1>
+
+        <h3>{{ totalColours }}</h3>
+
+        <p class="text-muted mb-0">
+          Paint Colours
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Designs -->
+    <div class="col-md-4">
+
+      <div class="card shadow p-4 text-center">
+
+        <h1>💾</h1>
+
+        <h3>{{ totalDesigns }}</h3>
+
+        <p class="text-muted mb-0">
+          Saved Designs
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Management Cards -->
+  <div class="row g-4">
+
+    <!-- User Management -->
+    <div class="col-md-4">
+
+      <div class="card shadow h-100">
+
+        <div class="card-body">
+
+          <h4>👥 User Management</h4>
+
+          <p class="text-muted">
+            View and manage registered users.
+          </p>
+
+          <button
+            class="btn btn-primary"
+            (click)="manageUsers()">
+            Manage Users
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Colour Management -->
+    <div class="col-md-4">
+
+      <div class="card shadow h-100">
+
+        <div class="card-body">
+
+          <h4>🎨 Paint Colours</h4>
+
+          <p class="text-muted">
+            Add, edit and remove paint colours.
+          </p>
+
+          <button
+            class="btn btn-success"
+            (click)="manageColours()">
+            Manage Colours
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Design Management -->
+    <div class="col-md-4">
+
+      <div class="card shadow h-100">
+
+        <div class="card-body">
+
+          <h4>💾 Saved Designs</h4>
+
+          <p class="text-muted">
+            View and manage customer designs.
+          </p>
+
+          <button
+            class="btn btn-warning"
+            (click)="manageDesigns()">
+            View Designs
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Quick Actions -->
+  <div class="card shadow mt-4 p-4">
+
+    <h4>⚡ Quick Actions</h4>
+
+    <hr>
+
+    <button
+      class="btn btn-outline-success me-2 mb-2"
+      (click)="addColour()">
+      ➕ Add Paint Colour
+    </button>
+
+    <button
+      class="btn btn-outline-primary me-2 mb-2"
+      (click)="manageUsers()">
+      👥 View Users
+    </button>
+
+    <button
+      class="btn btn-outline-dark mb-2"
+      (click)="manageDesigns()">
+      🖼️ View Designs
+    </button>
+
+  </div>
+
+</div>

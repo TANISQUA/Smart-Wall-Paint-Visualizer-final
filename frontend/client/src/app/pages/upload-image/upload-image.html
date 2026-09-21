@@ -1,0 +1,71 @@
+<div class="container mt-5">
+
+  <div class="row justify-content-center">
+
+    <div class="col-md-8">
+
+      <div class="card shadow p-4">
+
+        <h2 class="text-center mb-4">
+          📷 Upload Your Room
+        </h2>
+
+        <p class="text-center text-muted">
+          Upload a clear JPG or PNG image of your room.
+        </p>
+
+        <!-- File Upload -->
+        <div class="mb-4">
+
+          <label for="roomImage" class="form-label">
+            Select Room Image
+          </label>
+
+          <input
+            id="roomImage"
+            type="file"
+            class="form-control"
+            accept="image/jpeg,image/png"
+            (change)="onFileSelected($event)">
+
+        </div>
+
+        <!-- Image Preview -->
+        <div
+          *ngIf="imagePreview"
+          class="text-center mb-4">
+
+          <h5>Image Preview</h5>
+
+          <img
+            [src]="imagePreview"
+            class="img-fluid rounded shadow"
+            alt="Room Preview">
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="d-flex justify-content-between">
+
+          <button
+            class="btn btn-secondary"
+            (click)="goBack()">
+            ← Back
+          </button>
+
+          <button
+            class="btn btn-primary"
+            [disabled]="!selectedFile"
+            (click)="continueToEditor()">
+            Continue to Paint Editor →
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
